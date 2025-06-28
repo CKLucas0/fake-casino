@@ -181,4 +181,3 @@ gridEl.addEventListener('click', onCellClick);
 // Init
 updateBalanceDisplay();
 createGrid();
- 
