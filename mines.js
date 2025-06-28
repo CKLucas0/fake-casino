@@ -79,12 +79,14 @@ function revealAllMines() {
   });
 }
 
-function endGame(won) {
+function endGame(won, winnings = null) {
   gameState.active = false;
   revealAllMines();
 
   if (won) {
-    const winnings = calculateWinnings();
+    if (winnings === null) {
+      winnings = calculateWinnings();
+    }
     messageEl.textContent = `Gefeliciteerd! Je cashte uit met €${winnings}.`;
     setBalance(getBalance() + winnings);
   } else {
@@ -97,6 +99,7 @@ function endGame(won) {
   minesCountInput.disabled = false;
   betAmountInput.disabled = false;
 }
+
 
 function startGame() {
   const bet = parseInt(betAmountInput.value);
@@ -164,10 +167,11 @@ function onCellClick(e) {
 
 function cashOut() {
   if (!gameState.active) return;
-  const winnings = calculateWinnings();
-  setBalance(getBalance() + winnings);
-  endGame(true);
+  const winnings = calculateWinnings();  // hele winst pakken, geen /2
+  endGame(true, winnings);
 }
+
+
 
 // Event listeners
 startBtn.addEventListener('click', startGame);
