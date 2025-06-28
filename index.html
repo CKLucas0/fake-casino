@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Casino Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>🎰 Casino Hub</h1>
+  <div class="balance">Saldo: €<span id="hub-balance"></span></div>
+
+  <div class="game-list"> 
+    <div class="game-card" onclick="location.href='blackjack.html'">
+      <img src="blackjack.jpeg" alt="Blackjack">
+      <span>Blackjack</span>
+    </div>
+
+    <div class="game-card" onclick="location.href='mines.html'">
+      <img src="mines.jpeg" alt="Mines">
+      <span>Mines</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("hub-balance").textContent = getBalance();
+  </script>
+</body>
+</html>
